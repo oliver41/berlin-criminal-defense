@@ -42,7 +42,7 @@ export const dict = {
       consult: "Request a consultation",
       call: "Call now",
     },
-    firmName: "Berlin Criminal Law Firm",
+    firmName: "Strafrechtskanzlei Nadine Antoinette Kramer",
     firmTagline: "Criminal Defense & Victim Representation",
     contact: {
       phone: "+49 30 629 383 59",
