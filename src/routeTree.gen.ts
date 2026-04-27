@@ -9,38 +9,220 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as NebenklageRouteImport } from './routes/nebenklage'
+import { Route as LeistungenRouteImport } from './routes/leistungen'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as KanzleiRouteImport } from './routes/kanzlei'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnNebenklageRouteImport } from './routes/en.nebenklage'
+import { Route as EnLeistungenRouteImport } from './routes/en.leistungen'
+import { Route as EnKontaktRouteImport } from './routes/en.kontakt'
+import { Route as EnKanzleiRouteImport } from './routes/en.kanzlei'
+import { Route as EnInsightsRouteImport } from './routes/en.insights'
 
+const NebenklageRoute = NebenklageRouteImport.update({
+  id: '/nebenklage',
+  path: '/nebenklage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenRoute = LeistungenRouteImport.update({
+  id: '/leistungen',
+  path: '/leistungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KanzleiRoute = KanzleiRouteImport.update({
+  id: '/kanzlei',
+  path: '/kanzlei',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnNebenklageRoute = EnNebenklageRouteImport.update({
+  id: '/en/nebenklage',
+  path: '/en/nebenklage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnLeistungenRoute = EnLeistungenRouteImport.update({
+  id: '/en/leistungen',
+  path: '/en/leistungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnKontaktRoute = EnKontaktRouteImport.update({
+  id: '/en/kontakt',
+  path: '/en/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnKanzleiRoute = EnKanzleiRouteImport.update({
+  id: '/en/kanzlei',
+  path: '/en/kanzlei',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnInsightsRoute = EnInsightsRouteImport.update({
+  id: '/en/insights',
+  path: '/en/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/insights': typeof InsightsRoute
+  '/kanzlei': typeof KanzleiRoute
+  '/kontakt': typeof KontaktRoute
+  '/leistungen': typeof LeistungenRoute
+  '/nebenklage': typeof NebenklageRoute
+  '/en/insights': typeof EnInsightsRoute
+  '/en/kanzlei': typeof EnKanzleiRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/leistungen': typeof EnLeistungenRoute
+  '/en/nebenklage': typeof EnNebenklageRoute
+  '/en/': typeof EnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/insights': typeof InsightsRoute
+  '/kanzlei': typeof KanzleiRoute
+  '/kontakt': typeof KontaktRoute
+  '/leistungen': typeof LeistungenRoute
+  '/nebenklage': typeof NebenklageRoute
+  '/en/insights': typeof EnInsightsRoute
+  '/en/kanzlei': typeof EnKanzleiRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/leistungen': typeof EnLeistungenRoute
+  '/en/nebenklage': typeof EnNebenklageRoute
+  '/en': typeof EnIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/insights': typeof InsightsRoute
+  '/kanzlei': typeof KanzleiRoute
+  '/kontakt': typeof KontaktRoute
+  '/leistungen': typeof LeistungenRoute
+  '/nebenklage': typeof NebenklageRoute
+  '/en/insights': typeof EnInsightsRoute
+  '/en/kanzlei': typeof EnKanzleiRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/leistungen': typeof EnLeistungenRoute
+  '/en/nebenklage': typeof EnNebenklageRoute
+  '/en/': typeof EnIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/insights'
+    | '/kanzlei'
+    | '/kontakt'
+    | '/leistungen'
+    | '/nebenklage'
+    | '/en/insights'
+    | '/en/kanzlei'
+    | '/en/kontakt'
+    | '/en/leistungen'
+    | '/en/nebenklage'
+    | '/en/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/insights'
+    | '/kanzlei'
+    | '/kontakt'
+    | '/leistungen'
+    | '/nebenklage'
+    | '/en/insights'
+    | '/en/kanzlei'
+    | '/en/kontakt'
+    | '/en/leistungen'
+    | '/en/nebenklage'
+    | '/en'
+  id:
+    | '__root__'
+    | '/'
+    | '/insights'
+    | '/kanzlei'
+    | '/kontakt'
+    | '/leistungen'
+    | '/nebenklage'
+    | '/en/insights'
+    | '/en/kanzlei'
+    | '/en/kontakt'
+    | '/en/leistungen'
+    | '/en/nebenklage'
+    | '/en/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InsightsRoute: typeof InsightsRoute
+  KanzleiRoute: typeof KanzleiRoute
+  KontaktRoute: typeof KontaktRoute
+  LeistungenRoute: typeof LeistungenRoute
+  NebenklageRoute: typeof NebenklageRoute
+  EnInsightsRoute: typeof EnInsightsRoute
+  EnKanzleiRoute: typeof EnKanzleiRoute
+  EnKontaktRoute: typeof EnKontaktRoute
+  EnLeistungenRoute: typeof EnLeistungenRoute
+  EnNebenklageRoute: typeof EnNebenklageRoute
+  EnIndexRoute: typeof EnIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/nebenklage': {
+      id: '/nebenklage'
+      path: '/nebenklage'
+      fullPath: '/nebenklage'
+      preLoaderRoute: typeof NebenklageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen': {
+      id: '/leistungen'
+      path: '/leistungen'
+      fullPath: '/leistungen'
+      preLoaderRoute: typeof LeistungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kanzlei': {
+      id: '/kanzlei'
+      path: '/kanzlei'
+      fullPath: '/kanzlei'
+      preLoaderRoute: typeof KanzleiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +230,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/nebenklage': {
+      id: '/en/nebenklage'
+      path: '/en/nebenklage'
+      fullPath: '/en/nebenklage'
+      preLoaderRoute: typeof EnNebenklageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/leistungen': {
+      id: '/en/leistungen'
+      path: '/en/leistungen'
+      fullPath: '/en/leistungen'
+      preLoaderRoute: typeof EnLeistungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/kontakt': {
+      id: '/en/kontakt'
+      path: '/en/kontakt'
+      fullPath: '/en/kontakt'
+      preLoaderRoute: typeof EnKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/kanzlei': {
+      id: '/en/kanzlei'
+      path: '/en/kanzlei'
+      fullPath: '/en/kanzlei'
+      preLoaderRoute: typeof EnKanzleiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/insights': {
+      id: '/en/insights'
+      path: '/en/insights'
+      fullPath: '/en/insights'
+      preLoaderRoute: typeof EnInsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InsightsRoute: InsightsRoute,
+  KanzleiRoute: KanzleiRoute,
+  KontaktRoute: KontaktRoute,
+  LeistungenRoute: LeistungenRoute,
+  NebenklageRoute: NebenklageRoute,
+  EnInsightsRoute: EnInsightsRoute,
+  EnKanzleiRoute: EnKanzleiRoute,
+  EnKontaktRoute: EnKontaktRoute,
+  EnLeistungenRoute: EnLeistungenRoute,
+  EnNebenklageRoute: EnNebenklageRoute,
+  EnIndexRoute: EnIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
