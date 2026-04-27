@@ -14,13 +14,13 @@ export const dict = {
       consult: "Erstberatung anfragen",
       call: "Jetzt anrufen",
     },
-    firmName: "Kanzlei Strafrecht Berlin",
+    firmName: "Strafrechtskanzlei Nadine Antoinette Kramer",
     firmTagline: "Strafverteidigung & Opfervertretung",
     contact: {
-      phone: "+49 30 1234 5678",
-      emergency: "+49 171 234 5678",
+      phone: "+49 30 629 383 59",
+      emergency: "+49 1579 236 36 09",
       email: "kontakt@strafrecht-berlin.de",
-      address: ["Kurfürstendamm 123", "10711 Berlin"],
+      address: ["Alt-Moabit 110", "10559 Berlin"],
       hours: "Mo–Fr 9:00–18:00 · Notfall 24/7",
     },
     footer: {
