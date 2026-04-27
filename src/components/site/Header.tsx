@@ -51,13 +51,18 @@ export function Header({ locale }: { locale: Locale }) {
             <span className="font-medium">{t.contact.phone}</span>
           </a>
           <div className="flex items-center text-xs border-l border-border pl-5 gap-2">
-            <span className={locale === "de" ? "text-accent font-medium" : "text-muted-foreground"}>DE</span>
+            <Link
+              to="/"
+              className={locale === "de" ? "text-accent font-medium" : "text-muted-foreground hover:text-accent"}
+            >
+              DE
+            </Link>
             <span className="text-muted-foreground/50">/</span>
             <Link
-              to={otherHome}
+              to="/en"
               className={locale === "en" ? "text-accent font-medium" : "text-muted-foreground hover:text-accent"}
             >
-              {locale === "de" ? "EN" : "DE"}
+              EN
             </Link>
           </div>
         </div>
