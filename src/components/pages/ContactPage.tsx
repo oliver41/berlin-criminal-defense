@@ -154,7 +154,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
           <div className="aspect-[4/3] overflow-hidden border border-border">
             <iframe
               title="Map"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=13.339%2C52.522%2C13.346%2C52.527&layer=mapnik&marker=52.5245,13.3425"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=13.337%2C52.521%2C13.348%2C52.528&layer=mapnik"
               className="w-full h-full"
               loading="lazy"
             />
