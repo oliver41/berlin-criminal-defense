@@ -153,8 +153,8 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
           <div className="aspect-[4/3] overflow-hidden border border-border">
             <iframe
-              title="Map"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=13.32%2C52.49%2C13.34%2C52.51&amp;layer=mapnik"
+              title="Alt-Moabit 110, Berlin"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=13.3380%2C52.5235%2C13.3500%2C52.5295&amp;layer=mapnik&amp;marker=52.5265,13.3440"
               className="w-full h-full"
               loading="lazy"
             />
