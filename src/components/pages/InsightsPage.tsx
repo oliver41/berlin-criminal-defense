@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-type Article = { t: string; excerpt: string; body: string[] };
+type Article = { t: string; excerpt: string; body: readonly string[] };
 
 const copy = {
   de: {
