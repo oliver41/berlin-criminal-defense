@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
+import { toTelHref } from "@/lib/phone";
 
 export function Header({ locale }: { locale: Locale }) {
   const t = dict[locale];
@@ -14,8 +15,8 @@ export function Header({ locale }: { locale: Locale }) {
   const links = [
     { to: r.practice, label: t.nav.practice },
     { to: r.victim, label: t.nav.victim },
-    { to: r.about, label: t.nav.about },
     { to: r.insights, label: t.nav.insights },
+    { to: r.about, label: t.nav.about },
     { to: r.contact, label: t.nav.contact },
   ];
 
