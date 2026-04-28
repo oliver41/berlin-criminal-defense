@@ -13,8 +13,10 @@ const copy = {
     bioHeadline: "Spezialisierung als Verpflichtung.",
     bioBody:
       "Rechtsanwältin mit Fachanwaltstitel für Strafrecht, zugelassen an den Berliner Gerichten.",
+    leadName: "Nadine Antoinette Kramer",
+    leadIntro:
+      "Die Strafverteidigerin und Opferanwältin __NAME__ setzt sich mit maximaler Hingabe für Sie ein. Dabei werden selbstverständlich Ihre Bedürfnisse und Wünsche beachtet — und wir nehmen uns viel Zeit für Ihre Fragen.",
     aboutBlocks: [
-      "Die Strafverteidigerin und Opferanwältin Nadine Antoinette Kramer setzt sich mit maximaler Hingabe für Sie ein. Dabei werden selbstverständlich Ihre Bedürfnisse und Wünsche beachtet — und wir nehmen uns viel Zeit für Ihre Fragen.",
       "Wir übernehmen für Sie jegliche Kommunikation mit den Behörden — mit der Polizei, der Staatsanwaltschaft und vor Gericht. Anschließend berichten wir Ihnen immer zeitnah über den aktuellen Stand des Verfahrens.",
       "Unsere Kanzlei arbeitet schnell und effektiv. Wir informieren Sie offen und ehrlich über die rechtliche Lage und beraten Sie umfassend über verschiedene Verteidigungsstrategien.",
       "Transparenz hinsichtlich der Anwaltskosten ist uns sehr wichtig. Wir besprechen vorab, welche Kosten entstehen, und machen Ihnen ein klares Angebot. So gibt es keine unerwarteten Rechnungen — Sie wissen immer genau, welche Leistungen wie in Rechnung gestellt werden.",
