@@ -115,7 +115,11 @@ export function ContactPage({ locale }: { locale: Locale }) {
         <aside className="space-y-10">
           <div>
             <p className="eyebrow">{c.detailsTitle}</p>
-            <p className="font-serif text-3xl mt-3">{t.firmName}</p>
+            <p className="font-serif text-3xl mt-3 leading-snug">
+              Strafrechtskanzlei
+              <br />
+              Nadine Antoinette Kramer
+            </p>
           </div>
           <ul className="space-y-6 text-sm">
             <li className="flex gap-4">
