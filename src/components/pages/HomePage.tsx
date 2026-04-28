@@ -93,7 +93,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               </Link>
             </div>
             <a
-              href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+              href={toTelHref(t.contact.phone)}
               className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
             >
               <Phone className="h-4 w-4" />

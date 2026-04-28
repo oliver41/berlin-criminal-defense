@@ -45,7 +45,7 @@ export function Header({ locale }: { locale: Locale }) {
 
         <div className="hidden md:flex items-center gap-5">
           <a
-            href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+            href={toTelHref(t.contact.phone)}
             className="flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
           >
             <Phone className="h-4 w-4 text-accent" />
@@ -92,7 +92,7 @@ export function Header({ locale }: { locale: Locale }) {
             ))}
             <div className="hairline my-2" />
             <a
-              href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+              href={toTelHref(t.contact.phone)}
               className="flex items-center gap-2 text-sm"
             >
               <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}

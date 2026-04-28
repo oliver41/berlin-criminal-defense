@@ -25,7 +25,7 @@ export function Footer({ locale }: { locale: Locale }) {
               <li key={line}>{line}</li>
             ))}
             <li className="pt-2">
-              <a href={`tel:${t.contact.phone.replace(/\s/g, "")}`} className="hover:text-accent">
+              <a href={toTelHref(t.contact.phone)} className="hover:text-accent">
                 {t.contact.phone}
               </a>
             </li>

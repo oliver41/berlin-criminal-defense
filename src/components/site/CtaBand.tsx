@@ -19,7 +19,7 @@ export function CtaBand({ locale }: { locale: Locale }) {
         </div>
         <div className="flex flex-col gap-4 md:items-end">
           <a
-            href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+            href={toTelHref(t.contact.phone)}
             className="inline-flex items-center gap-3 text-2xl md:text-3xl font-serif text-brass hover:text-cream transition-colors"
           >
             <Phone className="h-6 w-6" />
