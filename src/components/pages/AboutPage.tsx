@@ -13,8 +13,10 @@ const copy = {
     bioHeadline: "Spezialisierung als Verpflichtung.",
     bioBody:
       "Rechtsanwältin mit Fachanwaltstitel für Strafrecht, zugelassen an den Berliner Gerichten.",
+    leadName: "Nadine Antoinette Kramer",
+    leadIntro:
+      "Die Strafverteidigerin und Opferanwältin __NAME__ setzt sich mit maximaler Hingabe für Sie ein. Dabei werden selbstverständlich Ihre Bedürfnisse und Wünsche beachtet — und wir nehmen uns viel Zeit für Ihre Fragen.",
     aboutBlocks: [
-      "Die Strafverteidigerin und Opferanwältin Nadine Antoinette Kramer setzt sich mit maximaler Hingabe für Sie ein. Dabei werden selbstverständlich Ihre Bedürfnisse und Wünsche beachtet — und wir nehmen uns viel Zeit für Ihre Fragen.",
       "Wir übernehmen für Sie jegliche Kommunikation mit den Behörden — mit der Polizei, der Staatsanwaltschaft und vor Gericht. Anschließend berichten wir Ihnen immer zeitnah über den aktuellen Stand des Verfahrens.",
       "Unsere Kanzlei arbeitet schnell und effektiv. Wir informieren Sie offen und ehrlich über die rechtliche Lage und beraten Sie umfassend über verschiedene Verteidigungsstrategien.",
       "Transparenz hinsichtlich der Anwaltskosten ist uns sehr wichtig. Wir besprechen vorab, welche Kosten entstehen, und machen Ihnen ein klares Angebot. So gibt es keine unerwarteten Rechnungen — Sie wissen immer genau, welche Leistungen wie in Rechnung gestellt werden.",
@@ -45,8 +47,10 @@ const copy = {
     bioHeadline: "Specialization as a commitment.",
     bioBody:
       "Attorney certified as Specialist Lawyer for Criminal Law (Fachanwalt für Strafrecht), admitted to the Berlin courts.",
+    leadName: "Nadine Antoinette Kramer",
+    leadIntro:
+      "Criminal defense attorney and victim's counsel __NAME__ represents you with maximum dedication. Your needs and wishes are taken seriously — and we take all the time you need for your questions.",
     aboutBlocks: [
-      "Criminal defense attorney and victim's counsel Nadine Antoinette Kramer represents you with maximum dedication. Your needs and wishes are taken seriously — and we take all the time you need for your questions.",
       "We handle all communication with the authorities for you — police, public prosecutor and the court — and keep you promptly informed about the current state of the proceedings.",
       "Our firm works quickly and effectively. We inform you openly and honestly about the legal situation and advise you comprehensively on different defense strategies.",
       "Transparency on legal fees matters to us. We discuss the expected costs in advance and provide you with a clear offer. No surprise invoices — you always know exactly what is being billed and why.",
@@ -78,6 +82,14 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <p className="eyebrow">{c.eyebrow}</p>
         <h1 className="font-serif text-5xl md:text-6xl mt-4 max-w-3xl leading-tight">{c.title}</h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">{c.intro}</p>
+        <p className="mt-8 font-serif text-2xl md:text-3xl max-w-3xl leading-snug text-foreground/90">
+          {c.leadIntro.split("__NAME__").map((part, i, arr) => (
+            <span key={i}>
+              {part}
+              {i < arr.length - 1 && <strong className="font-semibold text-foreground">{c.leadName}</strong>}
+            </span>
+          ))}
+        </p>
       </section>
 
       <section className="container-editorial mt-20 grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-start">
@@ -91,29 +103,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
           <div className="mt-8 space-y-5">
             {c.aboutBlocks.map((p, i) => (
-              <p
-                key={i}
-                className={
-                  i === 0
-                    ? "text-base text-foreground/90 leading-relaxed font-serif text-xl"
-                    : "text-base text-muted-foreground leading-relaxed"
-                }
-              >
+              <p key={i} className="text-base text-muted-foreground leading-relaxed">
                 {p}
               </p>
             ))}
-          </div>
-
-          <div className="mt-10 border-t border-border pt-8">
-            <p className="eyebrow">{c.credTitle}</p>
-            <ul className="mt-4 space-y-3 text-sm">
-              {c.creds.map((cr) => (
-                <li key={cr} className="flex gap-3">
-                  <span className="mt-2 h-px w-5 bg-accent" />
-                  {cr}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
