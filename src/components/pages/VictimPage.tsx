@@ -4,10 +4,10 @@ import officeImg from "@/assets/office-interior.jpg";
 
 const copy = {
   de: {
-    eyebrow: "Nebenklage · Opfervertretung",
+    eyebrow: "Opfervertretung · Nebenklage",
     title: "Wenn das Recht auf Ihrer Seite stehen muss.",
     intro:
-      "Als Nebenklägervertretung begleiten wir Verletzte schwerer Straftaten und ihre Angehörigen durch das gesamte Strafverfahren — mit Würde, Klarheit und Nachdruck.",
+      "Als Opferanwältin und Nebenklägervertretung begleiten wir Verletzte schwerer Straftaten und ihre Angehörigen durch das gesamte Strafverfahren — mit Würde, Klarheit und Nachdruck.",
     sections: [
       {
         t: "Was bedeutet Nebenklage?",
@@ -16,6 +16,14 @@ const copy = {
       {
         t: "Wann ist Nebenklage möglich?",
         b: "Insbesondere bei Sexualdelikten, Gewaltdelikten, Körperverletzung mit schweren Folgen, Tötungsdelikten zu Lasten Angehöriger sowie bei Stalking, Freiheitsentziehung und Menschenhandel.",
+      },
+      {
+        t: "Schadensersatz & Schmerzensgeld (Adhäsionsverfahren)",
+        b: "Wir beraten Sie umfassend über Ihre Opferrechte. Bereits im Strafverfahren können Sie Schadensersatz oder Schmerzensgeld gegen den Beschuldigten geltend machen — das sogenannte Adhäsionsverfahren. So müssen Sie keinen separaten Zivilprozess führen.",
+      },
+      {
+        t: "Häusliche Gewalt & Stalking",
+        b: "Bei häuslicher Gewalt oder Stalking können Maßnahmen nach dem Gewaltschutzgesetz erwirkt werden — etwa ein Näherungs- oder Kontaktverbot gegen den Täter. Wir beraten Sie hierzu und vertreten Sie auch vor dem Familiengericht.",
       },
       {
         t: "Was Sie erwartet",
@@ -31,7 +39,7 @@ const copy = {
     eyebrow: "Victim advocacy · Nebenklage",
     title: "When the law must stand on your side.",
     intro:
-      "As Nebenklage representation, we accompany victims of serious crimes and their families through the entire criminal proceedings — with dignity, clarity and resolve.",
+      "As victim's counsel and Nebenklage representation, we accompany victims of serious crimes and their families through the entire criminal proceedings — with dignity, clarity and resolve.",
     sections: [
       {
         t: "What is Nebenklage?",
@@ -40,6 +48,14 @@ const copy = {
       {
         t: "When is it available?",
         b: "Particularly in sexual offenses, violent crimes, bodily harm with serious consequences, homicide of family members, as well as stalking, deprivation of liberty and human trafficking.",
+      },
+      {
+        t: "Damages & compensation (Adhäsionsverfahren)",
+        b: "We advise you comprehensively on your rights as a victim. Already within the criminal proceedings you can claim damages or compensation for pain and suffering against the accused — the so-called Adhäsionsverfahren. No separate civil case required.",
+      },
+      {
+        t: "Domestic violence & stalking",
+        b: "In cases of domestic violence or stalking, measures under the Protection from Violence Act (Gewaltschutzgesetz) can be obtained — for example a no-contact or stay-away order against the perpetrator. We advise you and also represent you before the family court.",
       },
       {
         t: "What to expect",

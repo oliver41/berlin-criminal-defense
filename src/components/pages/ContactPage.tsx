@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toTelHref } from "@/lib/phone";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -114,7 +115,11 @@ export function ContactPage({ locale }: { locale: Locale }) {
         <aside className="space-y-10">
           <div>
             <p className="eyebrow">{c.detailsTitle}</p>
-            <p className="font-serif text-3xl mt-3">{t.firmName}</p>
+            <p className="font-serif text-3xl mt-3 leading-snug">
+              Strafrechtskanzlei
+              <br />
+              Nadine Antoinette Kramer
+            </p>
           </div>
           <ul className="space-y-6 text-sm">
             <li className="flex gap-4">
@@ -128,12 +133,12 @@ export function ContactPage({ locale }: { locale: Locale }) {
             <li className="flex gap-4">
               <Phone className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" strokeWidth={1.5} />
               <div>
-                <a href={`tel:${t.contact.phone.replace(/\s/g, "")}`} className="hover:text-accent block">
+                <a href={toTelHref(t.contact.phone)} className="hover:text-accent block">
                   {t.contact.phone}
                 </a>
                 <span className="text-muted-foreground text-xs">
                   {locale === "de" ? "Notfall " : "Emergency "}
-                  <a href={`tel:${t.contact.emergency.replace(/\s/g, "")}`} className="hover:text-accent">
+                  <a href={toTelHref(t.contact.emergency)} className="hover:text-accent">
                     {t.contact.emergency}
                   </a>
                 </span>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Shield, Scale, Users, Phone } from "lucide-react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
+import { toTelHref } from "@/lib/phone";
 import { CtaBand } from "@/components/site/CtaBand";
 import heroImg from "@/assets/hero-courtroom.jpg";
 import scalesImg from "@/assets/scales-still-life.jpg";
@@ -13,11 +14,23 @@ const copy = {
       "Wir verteidigen Mandantinnen und Mandanten in allen Bereichen des Strafrechts und vertreten Geschädigte als Nebenklage. Erreichbar — auch im Notfall.",
     primary: "Erstberatung anfragen",
     secondary: "Leistungen ansehen",
-    pillarsEyebrow: "Schwerpunkte",
+    addressEyebrow: "Sind Sie betroffen?",
+    addressTitle: "Wir helfen, wenn es ernst wird.",
+    addressItems: [
+      "Sie werden einer Straftat beschuldigt?",
+      "Sie haben eine polizeiliche Vorladung, eine Anzeige, eine Anklage oder einen Strafbefehl erhalten?",
+      "Sie haben einen Haftbefehl erhalten?",
+      "Sie oder ein Angehöriger sind in Untersuchungshaft (U-Haft)?",
+      "Sie suchen einen Strafverteidiger oder Pflichtverteidiger?",
+      "Sie suchen einen Opferanwalt für die Nebenklage?",
+    ],
+    addressFoot:
+      "Dann sind Sie hier richtig. Wir übernehmen für Sie jegliche Kommunikation mit den Behörden — Polizei, Staatsanwaltschaft und Gericht.",
+    pillarsEyebrow: "Was wir tun",
     pillars: [
       { icon: Shield, title: "Strafverteidigung", desc: "Engagiert und strategisch — vom Ermittlungsverfahren bis zur Hauptverhandlung." },
-      { icon: Scale, title: "Wirtschaftsstrafrecht", desc: "Komplexe Verfahren, Steuerstrafrecht, Compliance und Selbstanzeige." },
-      { icon: Users, title: "Nebenklage", desc: "Würdige und durchsetzungsstarke Vertretung von Verletzten und Angehörigen." },
+      { icon: Users, title: "Nebenklage & Opfervertretung", desc: "Würdige und durchsetzungsstarke Vertretung von Verletzten und Angehörigen — inklusive Schadensersatz und Schmerzensgeld." },
+      { icon: Scale, title: "Pflichtverteidigung", desc: "Beiordnung als Pflichtverteidigerin in Verfahren mit notwendiger Verteidigung — gleiches Engagement, gleiche Sorgfalt." },
     ],
     whyEyebrow: "Warum diese Kanzlei",
     whyTitle: "Vertrauen. Erfahrung. Konsequenz.",
@@ -25,8 +38,8 @@ const copy = {
       "Strafverfahren greifen tief in das Leben ein. Wir handeln schnell, sprechen Klartext und wahren absolute Verschwiegenheit. Erstgespräche finden auf Deutsch oder Englisch statt — telefonisch, in der Kanzlei oder bei Ihnen vor Ort.",
     whyPoints: [
       "24/7 Erreichbarkeit bei Festnahme oder Durchsuchung",
-      "Über 15 Jahre Erfahrung im Strafrecht",
-      "Verteidigung bundesweit, Schwerpunkt Berlin",
+      "Schnell, effektiv und transparent hinsichtlich der Kosten",
+      "In direkter Nähe zum Kriminalgericht Moabit",
       "Vertraulich, persönlich, ohne Standardlösungen",
     ],
     quote: "Strafverteidigung ist Handwerk und Haltung — und immer Vertrauenssache.",
@@ -39,11 +52,23 @@ const copy = {
       "We defend clients across all areas of criminal law and represent victims as Nebenklage. Available when it matters — including emergencies.",
     primary: "Request a consultation",
     secondary: "View practice areas",
-    pillarsEyebrow: "Focus areas",
+    addressEyebrow: "Are you affected?",
+    addressTitle: "We help when it gets serious.",
+    addressItems: [
+      "Are you being accused of a criminal offense?",
+      "Have you received a police summons, a charge, an indictment or a penalty order?",
+      "Has an arrest warrant been issued against you?",
+      "Are you or a family member in pre-trial detention?",
+      "Are you looking for a criminal defense lawyer or court-appointed counsel?",
+      "Are you looking for a victim's attorney for the Nebenklage?",
+    ],
+    addressFoot:
+      "Then you are in the right place. We handle all communication with the authorities for you — police, public prosecutor and court.",
+    pillarsEyebrow: "What we do",
     pillars: [
       { icon: Shield, title: "Criminal defense", desc: "Engaged and strategic — from preliminary proceedings through trial." },
-      { icon: Scale, title: "Business & tax crime", desc: "Complex matters, tax criminal law, compliance and voluntary disclosure." },
-      { icon: Users, title: "Victim advocacy", desc: "Dignified, assertive representation of victims and bereaved families." },
+      { icon: Users, title: "Victim advocacy & Nebenklage", desc: "Dignified, assertive representation of victims and families — including compensation and damages." },
+      { icon: Scale, title: "Court-appointed defense", desc: "Appointment as Pflichtverteidigerin in cases with mandatory defense — same commitment, same care." },
     ],
     whyEyebrow: "Why this firm",
     whyTitle: "Trust. Experience. Resolve.",
@@ -51,8 +76,8 @@ const copy = {
       "Criminal proceedings reach deeply into a person's life. We act quickly, speak plainly, and maintain absolute confidentiality. First conversations are held in German or English — by phone, at our office, or on site.",
     whyPoints: [
       "24/7 availability for arrests and searches",
-      "Over 15 years of criminal-law experience",
-      "Defense throughout Germany, based in Berlin",
+      "Fast, effective and transparent on costs",
+      "Located near the Kriminalgericht Moabit courthouse",
       "Confidential, personal, never off-the-shelf",
     ],
     quote: "Criminal defense is craft and conviction — and always a matter of trust.",
@@ -93,7 +118,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               </Link>
             </div>
             <a
-              href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+              href={toTelHref(t.contact.emergency)}
               className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
             >
               <Phone className="h-4 w-4" />
@@ -122,13 +147,43 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* Pillars */}
+      {/* Direct address */}
       <section className="container-editorial mt-24">
+        <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+          <div>
+            <p className="eyebrow">{c.addressEyebrow}</p>
+            <h2 className="font-serif text-4xl md:text-5xl mt-3 leading-tight">{c.addressTitle}</h2>
+            <p className="mt-6 text-base text-muted-foreground leading-relaxed max-w-md">
+              {c.addressFoot}
+            </p>
+            <Link
+              to={r.contact}
+              className="mt-8 inline-flex items-center gap-2 text-sm text-accent hover:underline underline-offset-4"
+            >
+              {c.primary} <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <ul className="border-t border-border">
+            {c.addressItems.map((item) => (
+              <li
+                key={item}
+                className="flex gap-5 border-b border-border py-5 text-base text-foreground/90"
+              >
+                <span className="font-serif text-accent text-xl leading-none mt-1">›</span>
+                <span className="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Pillars */}
+      <section className="container-editorial mt-32">
         <div className="flex items-end justify-between gap-6 mb-12">
           <div>
             <p className="eyebrow">{c.pillarsEyebrow}</p>
             <h2 className="font-serif text-4xl md:text-5xl mt-3">
-              {locale === "de" ? "Was wir tun" : "What we do"}
+              {locale === "de" ? "Drei Schwerpunkte" : "Three focus areas"}
             </h2>
           </div>
           <Link

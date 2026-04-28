@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
+import { toTelHref } from "@/lib/phone";
 
 export function Header({ locale }: { locale: Locale }) {
   const t = dict[locale];
@@ -14,8 +15,8 @@ export function Header({ locale }: { locale: Locale }) {
   const links = [
     { to: r.practice, label: t.nav.practice },
     { to: r.victim, label: t.nav.victim },
-    { to: r.about, label: t.nav.about },
     { to: r.insights, label: t.nav.insights },
+    { to: r.about, label: t.nav.about },
     { to: r.contact, label: t.nav.contact },
   ];
 
@@ -44,7 +45,7 @@ export function Header({ locale }: { locale: Locale }) {
 
         <div className="hidden md:flex items-center gap-5">
           <a
-            href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+            href={toTelHref(t.contact.phone)}
             className="flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
           >
             <Phone className="h-4 w-4 text-accent" />
@@ -91,7 +92,7 @@ export function Header({ locale }: { locale: Locale }) {
             ))}
             <div className="hairline my-2" />
             <a
-              href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+              href={toTelHref(t.contact.phone)}
               className="flex items-center gap-2 text-sm"
             >
               <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}

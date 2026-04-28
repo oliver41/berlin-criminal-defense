@@ -6,8 +6,8 @@ export const dict = {
       home: "Startseite",
       practice: "Leistungen",
       victim: "Nebenklage",
+      insights: "Soforthilfe",
       about: "Kanzlei",
-      insights: "Insights",
       contact: "Kontakt",
     },
     cta: {
@@ -17,8 +17,8 @@ export const dict = {
     firmName: "Strafrechtskanzlei Nadine Antoinette Kramer",
     firmTagline: "Strafverteidigung & Opfervertretung",
     contact: {
-      phone: "+49 30 629 383 59",
-      emergency: "+49 1579 236 36 09",
+      phone: "030 629 383 59",
+      emergency: "01579 236 36 09",
       email: "nk.strafrecht@gmail.com",
       address: ["Alt-Moabit 110", "10559 Berlin"],
       hours: "Mo–Fr 9:00–18:00 · Notfall 24/7",
@@ -34,8 +34,8 @@ export const dict = {
       home: "Home",
       practice: "Practice Areas",
       victim: "Victim Advocacy",
+      insights: "Immediate Help",
       about: "About",
-      insights: "Insights",
       contact: "Contact",
     },
     cta: {
@@ -45,8 +45,8 @@ export const dict = {
     firmName: "Strafrechtskanzlei Nadine Antoinette Kramer",
     firmTagline: "Criminal Defense & Victim Representation",
     contact: {
-      phone: "+49 30 629 383 59",
-      emergency: "+49 1579 236 36 09",
+      phone: "030 629 383 59",
+      emergency: "01579 236 36 09",
       email: "nk.strafrecht@gmail.com",
       address: ["Alt-Moabit 110", "10559 Berlin"],
       hours: "Mon–Fri 9 AM–6 PM · Emergency 24/7",
@@ -65,8 +65,10 @@ export const routesFor = (locale: Locale) => {
     home: base === "" ? "/" : "/en",
     practice: `${base}/leistungen`,
     victim: `${base}/nebenklage`,
-    about: `${base}/kanzlei`,
     insights: `${base}/insights`,
+    about: `${base}/kanzlei`,
     contact: `${base}/kontakt`,
+    imprint: `${base}/impressum`,
+    privacy: `${base}/datenschutz`,
   };
 };

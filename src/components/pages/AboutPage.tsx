@@ -8,10 +8,18 @@ const copy = {
     eyebrow: "Kanzlei",
     title: "Eine Kanzlei. Ein Anspruch: Beste Verteidigung.",
     intro:
-      "Seit über 15 Jahren widmen wir uns ausschließlich dem Strafrecht. Diese Spezialisierung ist unsere Stärke — und der Grund, warum Mandantinnen und Mandanten aus ganz Deutschland zu uns finden.",
+      "Wir sind eine junge, dem Strafrecht verschriebene Kanzlei in Berlin-Mitte — mit direkter Nähe zum Kriminalgericht Moabit. Klar in der Strategie, ehrlich in der Beratung, kompromisslos im Einsatz.",
     bioTitle: "Über den Anwalt",
+    bioHeadline: "Spezialisierung als Verpflichtung.",
     bioBody:
-      "Rechtsanwalt mit Fachanwaltstitel für Strafrecht, zugelassen seit 2009 an den Berliner Gerichten. Studium und Referendariat in Berlin und München, Veröffentlichungen zum Wirtschafts- und Sexualstrafrecht, regelmäßige Vortragstätigkeit.",
+      "Rechtsanwältin mit Fachanwaltstitel für Strafrecht, zugelassen an den Berliner Gerichten.",
+    aboutBlocks: [
+      "Die Strafverteidigerin und Opferanwältin Nadine Antoinette Kramer setzt sich mit maximaler Hingabe für Sie ein. Dabei werden selbstverständlich Ihre Bedürfnisse und Wünsche beachtet — und wir nehmen uns viel Zeit für Ihre Fragen.",
+      "Wir übernehmen für Sie jegliche Kommunikation mit den Behörden — mit der Polizei, der Staatsanwaltschaft und vor Gericht. Anschließend berichten wir Ihnen immer zeitnah über den aktuellen Stand des Verfahrens.",
+      "Unsere Kanzlei arbeitet schnell und effektiv. Wir informieren Sie offen und ehrlich über die rechtliche Lage und beraten Sie umfassend über verschiedene Verteidigungsstrategien.",
+      "Transparenz hinsichtlich der Anwaltskosten ist uns sehr wichtig. Wir besprechen vorab, welche Kosten entstehen, und machen Ihnen ein klares Angebot. So gibt es keine unerwarteten Rechnungen — Sie wissen immer genau, welche Leistungen wie in Rechnung gestellt werden.",
+      "Wir stehen an Ihrer Seite und gehen den Weg mit Ihnen gemeinsam.",
+    ],
     valuesTitle: "Unser Verständnis",
     values: [
       { t: "Vertraulichkeit", d: "Was in der Kanzlei besprochen wird, bleibt in der Kanzlei. Immer." },
@@ -26,16 +34,24 @@ const copy = {
       "Deutscher AnwaltVerein (DAV) — Arbeitsgemeinschaft Strafrecht",
       "Sprachen: Deutsch, Englisch",
     ],
-    officeCaption: "Kanzlei am Kurfürstendamm",
+    officeCaption: "Kanzlei Berlin-Mitte — in direkter Nähe zum Kriminalgericht Moabit",
   },
   en: {
     eyebrow: "About",
     title: "One firm. One standard: the best defense.",
     intro:
-      "For over fifteen years we have devoted ourselves exclusively to criminal law. This focus is our strength — and the reason clients from across Germany find their way to us.",
+      "We are a young firm devoted exclusively to criminal law, located in Berlin-Mitte — directly next to the Kriminalgericht Moabit courthouse. Clear in strategy, honest in counsel, uncompromising in commitment.",
     bioTitle: "About the attorney",
+    bioHeadline: "Specialization as a commitment.",
     bioBody:
-      "Attorney certified as Specialist Lawyer for Criminal Law (Fachanwalt für Strafrecht), admitted to the Berlin courts since 2009. Studies and clerkship in Berlin and Munich, publications on white-collar and sexual offenses, regular lecturing activity.",
+      "Attorney certified as Specialist Lawyer for Criminal Law (Fachanwalt für Strafrecht), admitted to the Berlin courts.",
+    aboutBlocks: [
+      "Criminal defense attorney and victim's counsel Nadine Antoinette Kramer represents you with maximum dedication. Your needs and wishes are taken seriously — and we take all the time you need for your questions.",
+      "We handle all communication with the authorities for you — police, public prosecutor and the court — and keep you promptly informed about the current state of the proceedings.",
+      "Our firm works quickly and effectively. We inform you openly and honestly about the legal situation and advise you comprehensively on different defense strategies.",
+      "Transparency on legal fees matters to us. We discuss the expected costs in advance and provide you with a clear offer. No surprise invoices — you always know exactly what is being billed and why.",
+      "We stand by your side and walk the path with you.",
+    ],
     valuesTitle: "Our principles",
     values: [
       { t: "Confidentiality", d: "What is discussed in our office stays in our office. Always." },
@@ -50,7 +66,7 @@ const copy = {
       "German Bar Association (DAV) — Criminal Law Working Group",
       "Languages: German, English",
     ],
-    officeCaption: "Office at Kurfürstendamm",
+    officeCaption: "Office in Berlin-Mitte — directly next to the Kriminalgericht Moabit",
   },
 } as const;
 
@@ -70,10 +86,23 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
         <div>
           <p className="eyebrow">{c.bioTitle}</p>
-          <h2 className="font-serif text-3xl md:text-4xl mt-3">
-            {locale === "de" ? "Spezialisierung als Verpflichtung." : "Specialization as a commitment."}
-          </h2>
+          <h2 className="font-serif text-3xl md:text-4xl mt-3">{c.bioHeadline}</h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed">{c.bioBody}</p>
+
+          <div className="mt-8 space-y-5">
+            {c.aboutBlocks.map((p, i) => (
+              <p
+                key={i}
+                className={
+                  i === 0
+                    ? "text-base text-foreground/90 leading-relaxed font-serif text-xl"
+                    : "text-base text-muted-foreground leading-relaxed"
+                }
+              >
+                {p}
+              </p>
+            ))}
+          </div>
 
           <div className="mt-10 border-t border-border pt-8">
             <p className="eyebrow">{c.credTitle}</p>
