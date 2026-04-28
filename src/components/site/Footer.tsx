@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { toTelHref } from "@/lib/phone";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
 
 export function Footer({ locale }: { locale: Locale }) {

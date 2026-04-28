@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { toTelHref } from "@/lib/phone";
 import { ArrowUpRight, Shield, Scale, Users, Phone } from "lucide-react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
 import { CtaBand } from "@/components/site/CtaBand";
