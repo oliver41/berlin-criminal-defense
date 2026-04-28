@@ -47,8 +47,10 @@ const copy = {
     bioHeadline: "Specialization as a commitment.",
     bioBody:
       "Attorney certified as Specialist Lawyer for Criminal Law (Fachanwalt für Strafrecht), admitted to the Berlin courts.",
+    leadName: "Nadine Antoinette Kramer",
+    leadIntro:
+      "Criminal defense attorney and victim's counsel __NAME__ represents you with maximum dedication. Your needs and wishes are taken seriously — and we take all the time you need for your questions.",
     aboutBlocks: [
-      "Criminal defense attorney and victim's counsel Nadine Antoinette Kramer represents you with maximum dedication. Your needs and wishes are taken seriously — and we take all the time you need for your questions.",
       "We handle all communication with the authorities for you — police, public prosecutor and the court — and keep you promptly informed about the current state of the proceedings.",
       "Our firm works quickly and effectively. We inform you openly and honestly about the legal situation and advise you comprehensively on different defense strategies.",
       "Transparency on legal fees matters to us. We discuss the expected costs in advance and provide you with a clear offer. No surprise invoices — you always know exactly what is being billed and why.",
