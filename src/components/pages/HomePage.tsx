@@ -28,7 +28,7 @@ const copy = {
       "Dann sind Sie hier richtig. Wir übernehmen für Sie jegliche Kommunikation mit den Behörden — Polizei, Staatsanwaltschaft und Gericht.",
     pillarsEyebrow: "Was wir tun",
     pillars: [
-      { icon: Shield, title: "Strafverteidigung", desc: "Engagiert und strategisch — vom Ermittlungsverfahren bis zur Hauptverhandlung. Wir verteidigen in allen Bereichen des Strafrechts, übernehmen die Kommunikation mit Polizei und Staatsanwaltschaft und vertreten Sie konsequent vor Gericht." },
+      { icon: Shield, title: "Strafverteidigung", desc: "Engagiert und strategisch — vom Ermittlungsverfahren bis zur Hauptverhandlung. In allen Bereichen des Strafrechts." },
       { icon: Users, title: "Nebenklage & Opfervertretung", desc: "Würdige und durchsetzungsstarke Vertretung von Verletzten und Angehörigen — inklusive Schadensersatz und Schmerzensgeld." },
       { icon: Scale, title: "Pflichtverteidigung", desc: "Beiordnung als Pflichtverteidigerin in Verfahren mit notwendiger Verteidigung — gleiches Engagement, gleiche Sorgfalt." },
     ],
