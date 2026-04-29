@@ -267,7 +267,7 @@ export function InsightsPage({ locale }: { locale: Locale }) {
             <>
               <p className="eyebrow">{c.articlesTitle}</p>
               <DialogTitle asChild>
-                <h3 className="font-serif text-4xl md:text-5xl font-semibold leading-[1.15] mt-2 pr-8">{active.t}</h3>
+                <h3 className="font-serif text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold leading-[1.2] mt-2 pr-8">{active.t}</h3>
               </DialogTitle>
               <div className="mt-8 space-y-4">
                 {active.body.map((p, i) => (
