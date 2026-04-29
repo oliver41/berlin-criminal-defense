@@ -65,7 +65,7 @@ export const routesFor = (locale: Locale) => {
     home: base === "" ? "/" : "/en",
     practice: `${base}/leistungen`,
     victim: `${base}/nebenklage`,
-    insights: `${base}/insights`,
+    insights: `${base}/soforthilfe`,
     about: `${base}/kanzlei`,
     contact: `${base}/kontakt`,
     imprint: `${base}/impressum`,
