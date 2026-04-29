@@ -183,7 +183,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div>
             <p className="eyebrow">{c.pillarsEyebrow}</p>
             <h2 className="font-serif text-4xl md:text-5xl mt-3">
-              {locale === "de" ? "Drei Schwerpunkte" : "Three focus areas"}
+              {locale === "de" ? "Unsere Schwerpunkte" : "Our focus areas"}
             </h2>
           </div>
           <Link
