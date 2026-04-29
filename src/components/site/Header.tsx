@@ -1,16 +1,33 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
 import { toTelHref } from "@/lib/phone";
 
+/** Map current pathname to the equivalent path in the other locale. */
+function getOtherLocalePath(pathname: string, otherLocale: Locale): string {
+  // Strip leading /en if present, get the "de-style" path
+  const dePath = pathname.startsWith("/en/")
+    ? pathname.slice(3)
+    : pathname === "/en"
+      ? "/"
+      : pathname;
+
+  if (otherLocale === "en") {
+    return dePath === "/" ? "/en" : `/en${dePath}`;
+  }
+  return dePath || "/";
+}
+
 export function Header({ locale }: { locale: Locale }) {
   const t = dict[locale];
   const r = routesFor(locale);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const otherLocale: Locale = locale === "de" ? "en" : "de";
-  const otherHome = otherLocale === "en" ? "/en" : "/";
+  const otherPath = getOtherLocalePath(pathname, otherLocale);
+  const samePath = getOtherLocalePath(pathname, locale);
 
   const links = [
     { to: r.practice, label: t.nav.practice },
@@ -52,19 +69,19 @@ export function Header({ locale }: { locale: Locale }) {
             <span className="font-medium">{t.contact.phone}</span>
           </a>
           <div className="flex items-center text-xs border-l border-border pl-5 gap-2">
-            <Link
-              to="/"
+            <a
+              href={locale === "de" ? samePath : otherPath}
               className={locale === "de" ? "text-accent font-medium" : "text-muted-foreground hover:text-accent"}
             >
               DE
-            </Link>
+            </a>
             <span className="text-muted-foreground/50">/</span>
-            <Link
-              to="/en"
+            <a
+              href={locale === "en" ? samePath : otherPath}
               className={locale === "en" ? "text-accent font-medium" : "text-muted-foreground hover:text-accent"}
             >
               EN
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -97,9 +114,9 @@ export function Header({ locale }: { locale: Locale }) {
             >
               <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}
             </a>
-            <Link to={otherHome} className="text-sm text-accent">
+            <a href={otherPath} className="text-sm text-accent" onClick={() => setOpen(false)}>
               {otherLocale === "en" ? "English" : "Deutsch"}
-            </Link>
+            </a>
           </div>
         </div>
       )}

@@ -2,16 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { InsightsPage } from "@/components/pages/InsightsPage";
 
-export const Route = createFileRoute("/insights")({
+export const Route = createFileRoute("/soforthilfe")({
   head: () => ({
     meta: [
-      { title: "Insights & FAQ — Strafrecht Berlin" },
+      { title: "Soforthilfe & FAQ — Strafrecht Berlin" },
       {
         name: "description",
         content:
           "Praktische Hinweise zu Hausdurchsuchung, Festnahme, Vorladung und Strafverfahren — sowie Antworten auf häufige Mandantenfragen.",
       },
-      { property: "og:title", content: "Insights & FAQ — Strafrecht Berlin" },
+      { property: "og:title", content: "Soforthilfe & FAQ — Strafrecht Berlin" },
       { property: "og:description", content: "Antworten, wenn jede Minute zählt." },
     ],
   }),

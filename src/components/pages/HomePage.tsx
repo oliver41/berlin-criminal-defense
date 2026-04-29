@@ -28,7 +28,7 @@ const copy = {
       "Dann sind Sie hier richtig. Wir übernehmen für Sie jegliche Kommunikation mit den Behörden — Polizei, Staatsanwaltschaft und Gericht.",
     pillarsEyebrow: "Was wir tun",
     pillars: [
-      { icon: Shield, title: "Strafverteidigung", desc: "Engagiert und strategisch — vom Ermittlungsverfahren bis zur Hauptverhandlung." },
+      { icon: Shield, title: "Strafverteidigung", desc: "Engagiert und strategisch — vom Ermittlungsverfahren bis zur Hauptverhandlung. Wir verteidigen in allen Bereichen des Strafrechts, übernehmen die Kommunikation mit Polizei und Staatsanwaltschaft und vertreten Sie konsequent vor Gericht." },
       { icon: Users, title: "Nebenklage & Opfervertretung", desc: "Würdige und durchsetzungsstarke Vertretung von Verletzten und Angehörigen — inklusive Schadensersatz und Schmerzensgeld." },
       { icon: Scale, title: "Pflichtverteidigung", desc: "Beiordnung als Pflichtverteidigerin in Verfahren mit notwendiger Verteidigung — gleiches Engagement, gleiche Sorgfalt." },
     ],
@@ -66,7 +66,7 @@ const copy = {
       "Then you are in the right place. We handle all communication with the authorities for you — police, public prosecutor and court.",
     pillarsEyebrow: "What we do",
     pillars: [
-      { icon: Shield, title: "Criminal defense", desc: "Engaged and strategic — from preliminary proceedings through trial." },
+      { icon: Shield, title: "Criminal defense", desc: "Engaged and strategic — from preliminary proceedings through trial. We defend across all areas of criminal law, take over communication with police and prosecutors, and represent you consistently before the court." },
       { icon: Users, title: "Victim advocacy & Nebenklage", desc: "Dignified, assertive representation of victims and families — including compensation and damages." },
       { icon: Scale, title: "Court-appointed defense", desc: "Appointment as Pflichtverteidigerin in cases with mandatory defense — same commitment, same care." },
     ],
@@ -183,7 +183,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div>
             <p className="eyebrow">{c.pillarsEyebrow}</p>
             <h2 className="font-serif text-4xl md:text-5xl mt-3">
-              {locale === "de" ? "Drei Schwerpunkte" : "Three focus areas"}
+              {locale === "de" ? "Unsere Schwerpunkte" : "Our focus areas"}
             </h2>
           </div>
           <Link
