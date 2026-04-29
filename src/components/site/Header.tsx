@@ -114,9 +114,9 @@ export function Header({ locale }: { locale: Locale }) {
             >
               <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}
             </a>
-            <Link to={otherPath} className="text-sm text-accent" onClick={() => setOpen(false)}>
+            <a href={otherPath} className="text-sm text-accent" onClick={() => setOpen(false)}>
               {otherLocale === "en" ? "English" : "Deutsch"}
-            </Link>
+            </a>
           </div>
         </div>
       )}
