@@ -82,14 +82,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <p className="eyebrow">{c.eyebrow}</p>
         <h1 className="font-serif text-5xl md:text-6xl mt-4 max-w-3xl leading-tight">{c.title}</h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">{c.intro}</p>
-        <p className="mt-8 font-serif text-2xl md:text-3xl max-w-3xl leading-snug text-foreground/90">
-          {c.leadIntro.split("__NAME__").map((part, i, arr) => (
-            <span key={i}>
-              {part}
-              {i < arr.length - 1 && <strong className="font-semibold text-foreground">{c.leadName}</strong>}
-            </span>
-          ))}
-        </p>
       </section>
 
       <section className="container-editorial mt-20 grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-start">
@@ -99,7 +91,13 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <div>
           <p className="eyebrow">{c.bioTitle}</p>
           <h2 className="font-serif text-3xl md:text-4xl mt-3">{c.bioHeadline}</h2>
-          <p className="mt-5 text-base text-muted-foreground leading-relaxed">{c.bioBody}</p>
+          <p className="mt-5 text-base text-muted-foreground leading-relaxed">{c.leadIntro.split("__NAME__").map((part, i, arr) => (
+            <span key={i}>
+              {part}
+              {i < arr.length - 1 && <strong className="font-semibold text-foreground">{c.leadName}</strong>}
+            </span>
+          ))}
+          </p>
 
           <div className="mt-8 space-y-5">
             {c.aboutBlocks.map((p, i) => (
