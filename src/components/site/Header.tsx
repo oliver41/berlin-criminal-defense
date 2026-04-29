@@ -95,26 +95,33 @@ export function Header({ locale }: { locale: Locale }) {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background">
+        <div className="lg:hidden border-t border-border bg-background overflow-hidden menu-panel">
           <div className="container-editorial py-6 flex flex-col gap-4">
-            {links.map((l) => (
+            {links.map((l, i) => (
               <Link
                 key={l.to}
                 to={l.to}
-                className="text-base text-foreground/80"
+                className="text-base text-foreground/80 hover:text-accent transition-colors menu-item"
+                style={{ animationDelay: `${80 + i * 55}ms` }}
                 onClick={() => setOpen(false)}
               >
                 {l.label}
               </Link>
             ))}
-            <div className="hairline my-2" />
+            <div className="hairline my-2 menu-item" style={{ animationDelay: `${80 + links.length * 55}ms` }} />
             <a
               href={toTelHref(t.contact.phone)}
-              className="flex items-center gap-2 text-sm"
+              className="flex items-center gap-2 text-sm menu-item"
+              style={{ animationDelay: `${120 + links.length * 55}ms` }}
             >
               <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}
             </a>
-            <a href={otherPath} className="text-sm text-accent" onClick={() => setOpen(false)}>
+            <a
+              href={otherPath}
+              className="text-sm text-accent menu-item"
+              style={{ animationDelay: `${160 + links.length * 55}ms` }}
+              onClick={() => setOpen(false)}
+            >
               {otherLocale === "en" ? "English" : "Deutsch"}
             </a>
           </div>
