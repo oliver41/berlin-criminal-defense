@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { X } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
@@ -13,6 +12,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
+import insightsImg from "@/assets/insights-desk.jpg";
 
 type Article = { t: string; excerpt: string; body: readonly string[] };
 
@@ -190,10 +190,24 @@ export function InsightsPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <section className="container-editorial pt-20 md:pt-28">
-        <p className="eyebrow">{c.eyebrow}</p>
-        <h1 className="font-serif text-5xl md:text-6xl mt-4 max-w-3xl leading-tight">{c.title}</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">{c.intro}</p>
+      <section className="container-editorial pt-20 md:pt-28 fade-up">
+        <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-end">
+          <div>
+            <p className="eyebrow">{c.eyebrow}</p>
+            <h1 className="font-serif text-5xl md:text-6xl mt-4 max-w-3xl leading-tight">{c.title}</h1>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">{c.intro}</p>
+          </div>
+          <div className="aspect-[5/4] overflow-hidden">
+            <img
+              src={insightsImg}
+              alt={locale === "de" ? "Aufgeschlagenes Gesetzbuch auf einem Schreibtisch" : "Open law book on a desk"}
+              loading="lazy"
+              width={1600}
+              height={1024}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Right-to-silence callout */}
@@ -209,18 +223,19 @@ export function InsightsPage({ locale }: { locale: Locale }) {
         <p className="eyebrow mb-6">{c.articlesTitle}</p>
         <div className="grid gap-px bg-border border border-border md:grid-cols-3">
           {c.articles.map((a, i) => (
-            <article key={a.t} className="bg-background p-8 group hover:bg-secondary/40 transition-colors flex flex-col">
+            <button
+              key={a.t}
+              type="button"
+              onClick={() => setActiveIdx(i)}
+              className="bg-background p-8 text-left group hover:bg-secondary/40 transition-colors flex flex-col cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
+            >
               <span className="eyebrow text-muted-foreground">№ {String(i + 1).padStart(2, "0")}</span>
-              <h2 className="font-serif text-2xl mt-3 leading-snug">{a.t}</h2>
+              <h2 className="font-serif text-2xl mt-3 leading-snug group-hover:text-accent transition-colors">{a.t}</h2>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed flex-1">{a.excerpt}</p>
-              <button
-                type="button"
-                onClick={() => setActiveIdx(i)}
-                className="mt-6 self-start text-xs text-accent hover:underline underline-offset-4"
-              >
+              <span className="mt-6 self-start text-xs text-accent group-hover:underline underline-offset-4">
                 {c.readMore} →
-              </button>
-            </article>
+              </span>
+            </button>
           ))}
         </div>
       </section>
@@ -250,11 +265,11 @@ export function InsightsPage({ locale }: { locale: Locale }) {
         <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
           {active && (
             <>
+              <p className="eyebrow">{c.articlesTitle}</p>
               <DialogTitle asChild>
-                <h3 className="font-serif text-3xl leading-snug pr-8">{active.t}</h3>
+                <h3 className="font-serif text-4xl md:text-5xl font-semibold leading-[1.15] mt-2 pr-8">{active.t}</h3>
               </DialogTitle>
-              <p className="eyebrow mt-2">{c.articlesTitle}</p>
-              <div className="mt-6 space-y-4">
+              <div className="mt-8 space-y-4">
                 {active.body.map((p, i) => (
                   <p key={i} className="text-base text-foreground/90 leading-relaxed">{p}</p>
                 ))}
