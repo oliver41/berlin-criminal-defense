@@ -183,4 +183,24 @@
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  .menu-panel {
+    animation: menu-slide 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-origin: top center;
+  }
+
+  @keyframes menu-slide {
+    from { opacity: 0; transform: translateY(-8px) scaleY(0.98); }
+    to { opacity: 1; transform: translateY(0) scaleY(1); }
+  }
+
+  .menu-item {
+    opacity: 0;
+    animation: menu-item-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes menu-item-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
 }
