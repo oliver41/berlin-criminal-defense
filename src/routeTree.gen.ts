@@ -9,23 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SoforthilfeRouteImport } from './routes/soforthilfe'
 import { Route as NebenklageRouteImport } from './routes/nebenklage'
 import { Route as LeistungenRouteImport } from './routes/leistungen'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as KanzleiRouteImport } from './routes/kanzlei'
-import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnSoforthilfeRouteImport } from './routes/en.soforthilfe'
 import { Route as EnNebenklageRouteImport } from './routes/en.nebenklage'
 import { Route as EnLeistungenRouteImport } from './routes/en.leistungen'
 import { Route as EnKontaktRouteImport } from './routes/en.kontakt'
 import { Route as EnKanzleiRouteImport } from './routes/en.kanzlei'
-import { Route as EnInsightsRouteImport } from './routes/en.insights'
 import { Route as EnImpressumRouteImport } from './routes/en.impressum'
 import { Route as EnDatenschutzRouteImport } from './routes/en.datenschutz'
 
+const SoforthilfeRoute = SoforthilfeRouteImport.update({
+  id: '/soforthilfe',
+  path: '/soforthilfe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NebenklageRoute = NebenklageRouteImport.update({
   id: '/nebenklage',
   path: '/nebenklage',
@@ -44,11 +49,6 @@ const KontaktRoute = KontaktRouteImport.update({
 const KanzleiRoute = KanzleiRouteImport.update({
   id: '/kanzlei',
   path: '/kanzlei',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InsightsRoute = InsightsRouteImport.update({
-  id: '/insights',
-  path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImpressumRoute = ImpressumRouteImport.update({
@@ -71,6 +71,11 @@ const EnIndexRoute = EnIndexRouteImport.update({
   path: '/en/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnSoforthilfeRoute = EnSoforthilfeRouteImport.update({
+  id: '/en/soforthilfe',
+  path: '/en/soforthilfe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnNebenklageRoute = EnNebenklageRouteImport.update({
   id: '/en/nebenklage',
   path: '/en/nebenklage',
@@ -91,11 +96,6 @@ const EnKanzleiRoute = EnKanzleiRouteImport.update({
   path: '/en/kanzlei',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnInsightsRoute = EnInsightsRouteImport.update({
-  id: '/en/insights',
-  path: '/en/insights',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const EnImpressumRoute = EnImpressumRouteImport.update({
   id: '/en/impressum',
   path: '/en/impressum',
@@ -111,36 +111,36 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
-  '/insights': typeof InsightsRoute
   '/kanzlei': typeof KanzleiRoute
   '/kontakt': typeof KontaktRoute
   '/leistungen': typeof LeistungenRoute
   '/nebenklage': typeof NebenklageRoute
+  '/soforthilfe': typeof SoforthilfeRoute
   '/en/datenschutz': typeof EnDatenschutzRoute
   '/en/impressum': typeof EnImpressumRoute
-  '/en/insights': typeof EnInsightsRoute
   '/en/kanzlei': typeof EnKanzleiRoute
   '/en/kontakt': typeof EnKontaktRoute
   '/en/leistungen': typeof EnLeistungenRoute
   '/en/nebenklage': typeof EnNebenklageRoute
+  '/en/soforthilfe': typeof EnSoforthilfeRoute
   '/en/': typeof EnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
-  '/insights': typeof InsightsRoute
   '/kanzlei': typeof KanzleiRoute
   '/kontakt': typeof KontaktRoute
   '/leistungen': typeof LeistungenRoute
   '/nebenklage': typeof NebenklageRoute
+  '/soforthilfe': typeof SoforthilfeRoute
   '/en/datenschutz': typeof EnDatenschutzRoute
   '/en/impressum': typeof EnImpressumRoute
-  '/en/insights': typeof EnInsightsRoute
   '/en/kanzlei': typeof EnKanzleiRoute
   '/en/kontakt': typeof EnKontaktRoute
   '/en/leistungen': typeof EnLeistungenRoute
   '/en/nebenklage': typeof EnNebenklageRoute
+  '/en/soforthilfe': typeof EnSoforthilfeRoute
   '/en': typeof EnIndexRoute
 }
 export interface FileRoutesById {
@@ -148,18 +148,18 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
-  '/insights': typeof InsightsRoute
   '/kanzlei': typeof KanzleiRoute
   '/kontakt': typeof KontaktRoute
   '/leistungen': typeof LeistungenRoute
   '/nebenklage': typeof NebenklageRoute
+  '/soforthilfe': typeof SoforthilfeRoute
   '/en/datenschutz': typeof EnDatenschutzRoute
   '/en/impressum': typeof EnImpressumRoute
-  '/en/insights': typeof EnInsightsRoute
   '/en/kanzlei': typeof EnKanzleiRoute
   '/en/kontakt': typeof EnKontaktRoute
   '/en/leistungen': typeof EnLeistungenRoute
   '/en/nebenklage': typeof EnNebenklageRoute
+  '/en/soforthilfe': typeof EnSoforthilfeRoute
   '/en/': typeof EnIndexRoute
 }
 export interface FileRouteTypes {
@@ -168,54 +168,54 @@ export interface FileRouteTypes {
     | '/'
     | '/datenschutz'
     | '/impressum'
-    | '/insights'
     | '/kanzlei'
     | '/kontakt'
     | '/leistungen'
     | '/nebenklage'
+    | '/soforthilfe'
     | '/en/datenschutz'
     | '/en/impressum'
-    | '/en/insights'
     | '/en/kanzlei'
     | '/en/kontakt'
     | '/en/leistungen'
     | '/en/nebenklage'
+    | '/en/soforthilfe'
     | '/en/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/datenschutz'
     | '/impressum'
-    | '/insights'
     | '/kanzlei'
     | '/kontakt'
     | '/leistungen'
     | '/nebenklage'
+    | '/soforthilfe'
     | '/en/datenschutz'
     | '/en/impressum'
-    | '/en/insights'
     | '/en/kanzlei'
     | '/en/kontakt'
     | '/en/leistungen'
     | '/en/nebenklage'
+    | '/en/soforthilfe'
     | '/en'
   id:
     | '__root__'
     | '/'
     | '/datenschutz'
     | '/impressum'
-    | '/insights'
     | '/kanzlei'
     | '/kontakt'
     | '/leistungen'
     | '/nebenklage'
+    | '/soforthilfe'
     | '/en/datenschutz'
     | '/en/impressum'
-    | '/en/insights'
     | '/en/kanzlei'
     | '/en/kontakt'
     | '/en/leistungen'
     | '/en/nebenklage'
+    | '/en/soforthilfe'
     | '/en/'
   fileRoutesById: FileRoutesById
 }
@@ -223,23 +223,30 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DatenschutzRoute: typeof DatenschutzRoute
   ImpressumRoute: typeof ImpressumRoute
-  InsightsRoute: typeof InsightsRoute
   KanzleiRoute: typeof KanzleiRoute
   KontaktRoute: typeof KontaktRoute
   LeistungenRoute: typeof LeistungenRoute
   NebenklageRoute: typeof NebenklageRoute
+  SoforthilfeRoute: typeof SoforthilfeRoute
   EnDatenschutzRoute: typeof EnDatenschutzRoute
   EnImpressumRoute: typeof EnImpressumRoute
-  EnInsightsRoute: typeof EnInsightsRoute
   EnKanzleiRoute: typeof EnKanzleiRoute
   EnKontaktRoute: typeof EnKontaktRoute
   EnLeistungenRoute: typeof EnLeistungenRoute
   EnNebenklageRoute: typeof EnNebenklageRoute
+  EnSoforthilfeRoute: typeof EnSoforthilfeRoute
   EnIndexRoute: typeof EnIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/soforthilfe': {
+      id: '/soforthilfe'
+      path: '/soforthilfe'
+      fullPath: '/soforthilfe'
+      preLoaderRoute: typeof SoforthilfeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nebenklage': {
       id: '/nebenklage'
       path: '/nebenklage'
@@ -266,13 +273,6 @@ declare module '@tanstack/react-router' {
       path: '/kanzlei'
       fullPath: '/kanzlei'
       preLoaderRoute: typeof KanzleiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/insights': {
-      id: '/insights'
-      path: '/insights'
-      fullPath: '/insights'
-      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/impressum': {
@@ -303,6 +303,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/soforthilfe': {
+      id: '/en/soforthilfe'
+      path: '/en/soforthilfe'
+      fullPath: '/en/soforthilfe'
+      preLoaderRoute: typeof EnSoforthilfeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/nebenklage': {
       id: '/en/nebenklage'
       path: '/en/nebenklage'
@@ -331,13 +338,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnKanzleiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/insights': {
-      id: '/en/insights'
-      path: '/en/insights'
-      fullPath: '/en/insights'
-      preLoaderRoute: typeof EnInsightsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/en/impressum': {
       id: '/en/impressum'
       path: '/en/impressum'
@@ -359,18 +359,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImpressumRoute: ImpressumRoute,
-  InsightsRoute: InsightsRoute,
   KanzleiRoute: KanzleiRoute,
   KontaktRoute: KontaktRoute,
   LeistungenRoute: LeistungenRoute,
   NebenklageRoute: NebenklageRoute,
+  SoforthilfeRoute: SoforthilfeRoute,
   EnDatenschutzRoute: EnDatenschutzRoute,
   EnImpressumRoute: EnImpressumRoute,
-  EnInsightsRoute: EnInsightsRoute,
   EnKanzleiRoute: EnKanzleiRoute,
   EnKontaktRoute: EnKontaktRoute,
   EnLeistungenRoute: EnLeistungenRoute,
   EnNebenklageRoute: EnNebenklageRoute,
+  EnSoforthilfeRoute: EnSoforthilfeRoute,
   EnIndexRoute: EnIndexRoute,
 }
 export const routeTree = rootRouteImport
