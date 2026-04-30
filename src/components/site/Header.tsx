@@ -115,19 +115,20 @@ export function Header({ locale }: { locale: Locale }) {
     </header>
 
       <div
-        className="lg:hidden fixed left-0 right-0 top-20 bottom-0 z-50 overflow-hidden bg-background"
+        className="lg:hidden fixed left-0 right-0 top-20 z-50 overflow-hidden bg-background"
         data-open={open ? "true" : "false"}
         aria-hidden={!open}
         style={{
-          overflowY: "auto",
-          height: open ? "calc(100dvh - 5rem)" : "0px",
+          height: open ? `${contentHeight}px` : "0px",
           opacity: open ? 1 : 0,
           transition: "height 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease",
           pointerEvents: open ? "auto" : "none",
           willChange: "height, opacity",
+          maxHeight: "calc(100dvh - 5rem)",
+          overflowY: "auto",
         }}
       >
-        <div className="container-editorial py-16 flex flex-col items-center gap-7 text-center">
+        <div ref={menuContentRef} className="container-editorial py-12 flex flex-col items-center gap-7 text-center">
           {links.map((l, i) => (
             <Link
               key={l.to}
