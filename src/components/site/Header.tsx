@@ -39,12 +39,12 @@ export function Header({ locale }: { locale: Locale }) {
 
   return (
     <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-sm border-b border-border">
-      <div className="container-editorial flex items-center justify-between h-20">
-        <Link to={r.home} className="flex flex-col leading-none group">
-          <span className="font-serif text-xl md:text-2xl text-foreground tracking-tight">
+      <div className="container-editorial flex items-center justify-between h-20 relative">
+        <Link to={r.home} className="flex flex-col leading-none group min-w-0 max-w-[60%] md:max-w-none">
+          <span className="font-serif text-base header-tight:text-lg md:text-2xl text-foreground tracking-tight truncate">
             {t.firmName}
           </span>
-          <span className="eyebrow mt-1">{t.firmTagline}</span>
+          <span className="eyebrow mt-1 text-[0.6rem] header-tight:text-[0.65rem] md:text-[0.7rem] truncate">{t.firmTagline}</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
