@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Phone, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
 import { toTelHref } from "@/lib/phone";
 
@@ -24,6 +24,23 @@ export function Header({ locale }: { locale: Locale }) {
   const r = routesFor(locale);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const menuContentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    if (!menuContentRef.current) return;
+    const update = () => {
+      if (menuContentRef.current) setContentHeight(menuContentRef.current.scrollHeight);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(menuContentRef.current);
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   const otherLocale: Locale = locale === "de" ? "en" : "de";
   const otherPath = getOtherLocalePath(pathname, otherLocale);
@@ -98,19 +115,20 @@ export function Header({ locale }: { locale: Locale }) {
     </header>
 
       <div
-        className="lg:hidden fixed left-0 right-0 top-20 bottom-0 z-50 overflow-hidden bg-background"
+        className="lg:hidden fixed left-0 right-0 top-20 z-50 overflow-hidden bg-background"
         data-open={open ? "true" : "false"}
         aria-hidden={!open}
         style={{
-          overflowY: "auto",
-          height: open ? "calc(100dvh - 5rem)" : "0px",
+          height: open ? `${contentHeight}px` : "0px",
           opacity: open ? 1 : 0,
           transition: "height 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease",
           pointerEvents: open ? "auto" : "none",
           willChange: "height, opacity",
+          maxHeight: "calc(100dvh - 5rem)",
+          overflowY: "auto",
         }}
       >
-        <div className="container-editorial py-16 flex flex-col items-center gap-7 text-center">
+        <div ref={menuContentRef} className="container-editorial py-12 flex flex-col items-center gap-7 text-center">
           {links.map((l, i) => (
             <Link
               key={l.to}
