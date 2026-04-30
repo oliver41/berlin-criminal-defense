@@ -95,36 +95,72 @@ export function Header({ locale }: { locale: Locale }) {
       </div>
 
       <div
-        className={`lg:hidden fixed left-0 right-0 top-20 bottom-0 z-50 bg-background overflow-y-auto menu-rollo ${open ? "menu-rollo-open" : "menu-rollo-closed"}`}
+        className="lg:hidden menu-rollo"
+        data-open={open ? "true" : "false"}
         aria-hidden={!open}
+        style={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          top: "5rem",
+          bottom: 0,
+          zIndex: 45,
+          background: "var(--background)",
+          overflowY: "auto",
+          opacity: open ? 1 : 0,
+          transform: open ? "scaleY(1)" : "scaleY(0)",
+          transformOrigin: "top center",
+          transition: "opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)",
+          pointerEvents: open ? "auto" : "none",
+          willChange: "opacity, transform",
+        }}
       >
         <div className="container-editorial py-16 flex flex-col items-center gap-7 text-center">
           {links.map((l, i) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-lg text-foreground/85 hover:text-accent transition-colors menu-fade-item ${open ? "menu-fade-in" : ""}`}
-              style={{ transitionDelay: open ? `${250 + i * 70}ms` : "0ms" }}
+              className="text-lg text-foreground/85 hover:text-accent transition-colors"
+              style={{
+                opacity: open ? 1 : 0,
+                transform: open ? "translateY(0)" : "translateY(-8px)",
+                transition: "opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+                transitionDelay: open ? `${280 + i * 70}ms` : "0ms",
+              }}
               onClick={() => setOpen(false)}
             >
               {l.label}
             </Link>
           ))}
           <div
-            className={`hairline w-16 my-2 menu-fade-item ${open ? "menu-fade-in" : ""}`}
-            style={{ transitionDelay: open ? `${250 + links.length * 70}ms` : "0ms" }}
+            className="hairline w-16 my-2"
+            style={{
+              opacity: open ? 1 : 0,
+              transition: "opacity 0.5s ease",
+              transitionDelay: open ? `${280 + links.length * 70}ms` : "0ms",
+            }}
           />
           <a
             href={toTelHref(t.contact.phone)}
-            className={`flex items-center gap-2 text-base menu-fade-item ${open ? "menu-fade-in" : ""}`}
-            style={{ transitionDelay: open ? `${290 + links.length * 70}ms` : "0ms" }}
+            className="flex items-center gap-2 text-base"
+            style={{
+              opacity: open ? 1 : 0,
+              transform: open ? "translateY(0)" : "translateY(-8px)",
+              transition: "opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+              transitionDelay: open ? `${320 + links.length * 70}ms` : "0ms",
+            }}
           >
             <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}
           </a>
           <a
             href={otherPath}
-            className={`text-base text-accent menu-fade-item ${open ? "menu-fade-in" : ""}`}
-            style={{ transitionDelay: open ? `${330 + links.length * 70}ms` : "0ms" }}
+            className="text-base text-accent"
+            style={{
+              opacity: open ? 1 : 0,
+              transform: open ? "translateY(0)" : "translateY(-8px)",
+              transition: "opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+              transitionDelay: open ? `${360 + links.length * 70}ms` : "0ms",
+            }}
             onClick={() => setOpen(false)}
           >
             {otherLocale === "en" ? "English" : "Deutsch"}
