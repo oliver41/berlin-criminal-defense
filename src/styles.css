@@ -190,14 +190,34 @@
     transform-origin: top center;
   }
 
-  .menu-overlay {
-    animation: menu-overlay-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .menu-rollo {
     transform-origin: top center;
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, clip-path;
+  }
+  .menu-rollo-closed {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    pointer-events: none;
+  }
+  .menu-rollo-open {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    pointer-events: auto;
   }
 
-  @keyframes menu-overlay-in {
-    from { opacity: 0; transform: translateY(-12px); }
-    to { opacity: 1; transform: translateY(0); }
+  .menu-fade-item {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .menu-fade-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @keyframes menu-slide {

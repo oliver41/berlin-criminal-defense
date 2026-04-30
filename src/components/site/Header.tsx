@@ -94,41 +94,43 @@ export function Header({ locale }: { locale: Locale }) {
         </button>
       </div>
 
-      {open && (
-        <div
-          className="lg:hidden fixed left-0 right-0 top-20 bottom-0 z-30 bg-background menu-overlay overflow-y-auto"
-        >
-          <div className="container-editorial py-12 flex flex-col items-center gap-6 text-center">
-            {links.map((l, i) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="text-lg text-foreground/85 hover:text-accent transition-colors menu-item"
-                style={{ animationDelay: `${120 + i * 70}ms` }}
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </Link>
-            ))}
-            <div className="hairline w-16 my-2 menu-item" style={{ animationDelay: `${120 + links.length * 70}ms` }} />
-            <a
-              href={toTelHref(t.contact.phone)}
-              className="flex items-center gap-2 text-base menu-item"
-              style={{ animationDelay: `${160 + links.length * 70}ms` }}
-            >
-              <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}
-            </a>
-            <a
-              href={otherPath}
-              className="text-base text-accent menu-item"
-              style={{ animationDelay: `${200 + links.length * 70}ms` }}
+      <div
+        className={`lg:hidden fixed left-0 right-0 top-20 bottom-0 z-50 bg-background overflow-y-auto menu-rollo ${open ? "menu-rollo-open" : "menu-rollo-closed"}`}
+        aria-hidden={!open}
+      >
+        <div className="container-editorial py-16 flex flex-col items-center gap-7 text-center">
+          {links.map((l, i) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`text-lg text-foreground/85 hover:text-accent transition-colors menu-fade-item ${open ? "menu-fade-in" : ""}`}
+              style={{ transitionDelay: open ? `${250 + i * 70}ms` : "0ms" }}
               onClick={() => setOpen(false)}
             >
-              {otherLocale === "en" ? "English" : "Deutsch"}
-            </a>
-          </div>
+              {l.label}
+            </Link>
+          ))}
+          <div
+            className={`hairline w-16 my-2 menu-fade-item ${open ? "menu-fade-in" : ""}`}
+            style={{ transitionDelay: open ? `${250 + links.length * 70}ms` : "0ms" }}
+          />
+          <a
+            href={toTelHref(t.contact.phone)}
+            className={`flex items-center gap-2 text-base menu-fade-item ${open ? "menu-fade-in" : ""}`}
+            style={{ transitionDelay: open ? `${290 + links.length * 70}ms` : "0ms" }}
+          >
+            <Phone className="h-4 w-4 text-accent" /> {t.contact.phone}
+          </a>
+          <a
+            href={otherPath}
+            className={`text-base text-accent menu-fade-item ${open ? "menu-fade-in" : ""}`}
+            style={{ transitionDelay: open ? `${330 + links.length * 70}ms` : "0ms" }}
+            onClick={() => setOpen(false)}
+          >
+            {otherLocale === "en" ? "English" : "Deutsch"}
+          </a>
         </div>
-      )}
+      </div>
     </header>
   );
 }
