@@ -96,7 +96,7 @@ export function Header({ locale }: { locale: Locale }) {
 
       {open && (
         <div
-          className="lg:hidden fixed left-0 right-0 top-20 bottom-0 z-30 bg-background/98 backdrop-blur-md menu-overlay"
+          className="lg:hidden fixed left-0 right-0 top-20 bottom-0 z-30 bg-background menu-overlay overflow-y-auto"
         >
           <div className="container-editorial py-12 flex flex-col items-center gap-6 text-center">
             {links.map((l, i) => (
