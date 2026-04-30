@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Phone, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { dict, routesFor, type Locale } from "@/lib/i18n";
 import { toTelHref } from "@/lib/phone";
 
