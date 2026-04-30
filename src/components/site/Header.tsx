@@ -38,7 +38,8 @@ export function Header({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-sm border-b border-border">
+    <>
+    <header className="sticky top-0 z-[60] bg-background/85 backdrop-blur-sm border-b border-border">
       <div className="container-editorial flex items-center justify-between h-20 relative">
         <Link to={r.home} className="flex flex-col leading-none group min-w-0 max-w-[60%] md:max-w-none">
           <span className="font-serif text-base header-tight:text-lg md:text-2xl text-foreground tracking-tight truncate">
@@ -94,25 +95,19 @@ export function Header({ locale }: { locale: Locale }) {
         </button>
       </div>
 
+    </header>
+
       <div
-        className="lg:hidden menu-rollo"
+        className="lg:hidden fixed left-0 right-0 top-20 bottom-0 z-50 overflow-hidden bg-background"
         data-open={open ? "true" : "false"}
         aria-hidden={!open}
         style={{
-          position: "fixed",
-          left: 0,
-          right: 0,
-          top: "5rem",
-          bottom: 0,
-          zIndex: 45,
-          background: "var(--background)",
           overflowY: "auto",
+          height: open ? "calc(100dvh - 5rem)" : "0px",
           opacity: open ? 1 : 0,
-          transform: open ? "scaleY(1)" : "scaleY(0)",
-          transformOrigin: "top center",
-          transition: "opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)",
+          transition: "height 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease",
           pointerEvents: open ? "auto" : "none",
-          willChange: "opacity, transform",
+          willChange: "height, opacity",
         }}
       >
         <div className="container-editorial py-16 flex flex-col items-center gap-7 text-center">
@@ -167,6 +162,6 @@ export function Header({ locale }: { locale: Locale }) {
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 }
