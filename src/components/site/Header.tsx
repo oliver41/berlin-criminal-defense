@@ -24,6 +24,23 @@ export function Header({ locale }: { locale: Locale }) {
   const r = routesFor(locale);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const menuContentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    if (!menuContentRef.current) return;
+    const update = () => {
+      if (menuContentRef.current) setContentHeight(menuContentRef.current.scrollHeight);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(menuContentRef.current);
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   const otherLocale: Locale = locale === "de" ? "en" : "de";
   const otherPath = getOtherLocalePath(pathname, otherLocale);
