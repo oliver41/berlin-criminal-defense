@@ -3,6 +3,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant header-tight (@media (min-width: 520px));
 
 /*
  * Editorial & premium law-firm design system.
