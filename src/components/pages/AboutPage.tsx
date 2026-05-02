@@ -86,7 +86,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="container-editorial mt-20 grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-start">
         <div className="aspect-[4/5] overflow-hidden">
-          <img src={courthouseImg} alt="" loading="lazy" width={1600} height={1000} className="w-full h-full object-cover" />
+          <img src={portraitImg} alt={c.leadName} loading="lazy" width={1000} height={1300} className="w-full h-full object-cover" />
         </div>
         <div>
           <p className="eyebrow">{c.bioTitle}</p>
@@ -123,8 +123,8 @@ export function AboutPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="container-editorial mt-28">
-        <div className="aspect-[4/5] max-w-xl mx-auto overflow-hidden">
-          <img src={portraitImg} alt={c.officeCaption} loading="lazy" width={1000} height={1300} className="w-full h-full object-cover" />
+        <div className="aspect-[16/8] overflow-hidden">
+          <img src={courthouseImg} alt="" loading="lazy" width={1600} height={1000} className="w-full h-full object-cover" />
         </div>
         <p className="eyebrow mt-4 text-center">{c.officeCaption}</p>
       </section>
