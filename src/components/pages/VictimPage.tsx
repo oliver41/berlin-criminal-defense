@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import { CtaBand } from "@/components/site/CtaBand";
-import officeImg from "@/assets/office-interior.jpg";
+import portraitImg from "@/assets/portrait-nebenklage.jpg";
 
 const copy = {
   de: {
@@ -81,11 +81,11 @@ export function VictimPage({ locale }: { locale: Locale }) {
         </div>
         <div className="aspect-[4/5] overflow-hidden">
           <img
-            src={officeImg}
-            alt={locale === "de" ? "Anwaltskanzlei Berlin" : "Law office Berlin"}
+            src={portraitImg}
+            alt={locale === "de" ? "Nadine Antoinette Kramer — Opferanwältin" : "Nadine Antoinette Kramer — Victim's counsel"}
             loading="lazy"
-            width={1600}
-            height={1100}
+            width={1080}
+            height={1360}
             className="w-full h-full object-cover"
           />
         </div>
