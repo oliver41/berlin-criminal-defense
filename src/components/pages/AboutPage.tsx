@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n";
 import { CtaBand } from "@/components/site/CtaBand";
 import portraitImg from "@/assets/portrait-kanzlei.jpg";
-import courthouseImg from "@/assets/berlin-courthouse.jpg";
+import officeInteriorImg from "@/assets/office-interior.jpg";
 
 const copy = {
   de: {
@@ -124,7 +124,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="container-editorial mt-28">
         <div className="aspect-[16/8] overflow-hidden">
-          <img src={courthouseImg} alt="" loading="lazy" width={1600} height={1000} className="w-full h-full object-cover" />
+          <img src={officeInteriorImg} alt="" loading="lazy" width={1600} height={1000} className="w-full h-full object-cover" />
         </div>
         <p className="eyebrow mt-4 text-center">{c.officeCaption}</p>
       </section>
