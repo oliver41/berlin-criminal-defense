@@ -275,6 +275,26 @@ Vor dem Abhaken bitte alle prüfen:
 - [ ] **`top` des Overlays === Header-Höhe** (sonst Lücke oder Überlappung)
 - [ ] **`onClick={() => setOpen(false)}`** auf jedem Link, damit das Menu nach Navigation schließt
 - [ ] **`aria-hidden={!open}`** + **`aria-expanded`** am Toggle-Button für Screenreader
+- [ ] **Links volle Breite (`block w-full` / `flex w-full`)** + vertikales Padding (`py-2`) — vergrößert die Tap-Area auf die ganze Zeile, nicht nur den Text. Wichtig auf Mobile.
+
+### Tap-Targets auf voller Breite
+
+Standardmäßig ist ein `<a>` nur so breit wie sein Text — links/rechts daneben passiert beim Tap nichts. Auf Mobile fühlt sich das fummelig an. Lösung: Link auf Block-Level + volle Breite + Padding:
+
+```tsx
+// Vorher (nur Text klickbar)
+<a className="text-lg">{label}</a>
+
+// Nachher (ganze Zeile klickbar)
+<a className="block w-full py-2 text-lg text-center">{label}</a>
+
+// Bei Flex-Inhalt (z. B. Icon + Text)
+<a className="flex w-full items-center justify-center gap-2 py-2">
+  <Icon /> {label}
+</a>
+```
+
+Der Container bleibt `flex flex-col items-center` — das Text-Centering kommt über `text-center` bzw. `justify-center` im Link selbst.
 
 ---
 
