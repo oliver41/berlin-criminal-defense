@@ -133,7 +133,7 @@ export function Header({ locale }: { locale: Locale }) {
             <Link
               key={l.to}
               to={l.to}
-              className="text-lg text-foreground/85 hover:text-accent transition-colors"
+              className="block w-full py-2 text-lg text-foreground/85 hover:text-accent transition-colors"
               style={{
                 opacity: open ? 1 : 0,
                 transform: open ? "translateY(0)" : "translateY(-8px)",
@@ -155,7 +155,7 @@ export function Header({ locale }: { locale: Locale }) {
           />
           <a
             href={toTelHref(t.contact.phone)}
-            className="flex items-center gap-2 text-base"
+            className="flex w-full items-center justify-center gap-2 py-2 text-base"
             style={{
               opacity: open ? 1 : 0,
               transform: open ? "translateY(0)" : "translateY(-8px)",
@@ -167,7 +167,7 @@ export function Header({ locale }: { locale: Locale }) {
           </a>
           <a
             href={otherPath}
-            className="text-base text-accent"
+            className="block w-full py-2 text-base text-accent"
             style={{
               opacity: open ? 1 : 0,
               transform: open ? "translateY(0)" : "translateY(-8px)",
